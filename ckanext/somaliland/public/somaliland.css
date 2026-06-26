@@ -1,0 +1,190 @@
+/* ============================================
+   SOMALILAND OPEN DATA PORTAL - Official Theme
+   Colors: Green #4AA84A | Red #CE1126
+   Built by Foosi Mohamed Jama
+   ============================================ */
+
+:root {
+  --sl-green: #4AA84A;
+  --sl-red:   #CE1126;
+  --sl-white: #FFFFFF;
+  --sl-dark:  #1a1a1a;
+}
+
+/* HEADER */
+.sl-header {
+  background-color: var(--sl-green);
+  padding: 14px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.sl-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sl-logo {
+  color: var(--sl-white);
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.sl-logo span {
+  margin-left: 8px;
+}
+
+.sl-nav a {
+  color: var(--sl-white);
+  text-decoration: none;
+  margin-left: 24px;
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.sl-nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* HERO SECTION */
+.sl-hero {
+  margin-bottom: 40px;
+}
+
+.sl-flag-stripe {
+  height: 12px;
+}
+
+.sl-flag-stripe.green { background: var(--sl-green); }
+.sl-flag-stripe.red   { background: var(--sl-red); }
+
+.sl-flag-stripe.white {
+  background: var(--sl-white);
+  padding: 50px 0;
+  text-align: center;
+  border-left: 6px solid var(--sl-green);
+}
+
+.sl-flag-stripe.white h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--sl-dark);
+  margin-bottom: 12px;
+}
+
+.sl-flag-stripe.white p {
+  font-size: 17px;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+/* SEARCH BAR */
+.sl-search {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.sl-search input {
+  flex: 1;
+  padding: 12px 18px;
+  border: 2px solid var(--sl-green);
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+}
+
+.sl-search input:focus {
+  border-color: var(--sl-red);
+}
+
+.sl-search button {
+  padding: 12px 28px;
+  background: var(--sl-green);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sl-search button:hover {
+  background: var(--sl-red);
+}
+
+/* CATEGORIES SECTION */
+.sl-categories {
+  padding: 40px 0;
+}
+
+.sl-categories h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--sl-green);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.sl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.sl-card {
+  background: white;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 24px 20px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--sl-dark);
+  transition: all 0.2s;
+  border-top: 4px solid var(--sl-green);
+}
+
+.sl-card:hover {
+  border-top-color: var(--sl-red);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.sl-icon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.sl-card h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--sl-green);
+  margin-bottom: 6px;
+}
+
+.sl-card p {
+  font-size: 13px;
+  color: #777;
+}
+
+/* FOOTER */
+.sl-footer {
+  background: var(--sl-green);
+  color: white;
+  text-align: center;
+  padding: 24px 0;
+  margin-top: 60px;
+  border-top: 4px solid var(--sl-red);
+}
+
+.sl-footer p {
+  margin: 4px 0;
+  font-size: 14px;
+  opacity: 0.9;
+}

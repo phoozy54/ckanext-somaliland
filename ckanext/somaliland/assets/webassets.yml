@@ -1,0 +1,14 @@
+# somaliland-js:
+#   filters: rjsmin
+#   output: ckanext-somaliland/%(version)s-somaliland.js
+#   contents:
+#     - js/somaliland.js
+#   extra:
+#     preload:
+#       - base/main
+
+# somaliland-css:
+#   filters: cssrewrite
+#   output: ckanext-somaliland/%(version)s-somaliland.css
+#   contents:
+#     - css/somaliland.css

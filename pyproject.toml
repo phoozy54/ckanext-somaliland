@@ -1,0 +1,39 @@
+[project]
+name = "ckanext-somaliland"
+version = "0.1.0"
+description = " Somaliland Open Data Portal theme and branding"
+readme = "README.md"
+authors = [
+    {name = "Foosi Mohamed Jama", email = "phoozyman@gmail.com"}
+]
+license = {text = "AGPL"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+keywords = [ "CKAN", "Somaliland", ]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/morris54/ckanext-somaliland"
+
+[project.entry-points."ckan.plugins"]
+somaliland = "ckanext.somaliland.plugin:SomalilandPlugin"
+
+
+[build-system]
+requires = ["setuptools<82"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+filterwarnings = [
+        "ignore::sqlalchemy.exc.SADeprecationWarning",
+        "ignore::sqlalchemy.exc.SAWarning",
+        "ignore::DeprecationWarning",
+]
+addopts = "--ckan-ini test.ini"

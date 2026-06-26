@@ -1,0 +1,268 @@
+{% extends "page.html" %}
+{% block subtitle %}{{ _("Welcome") }}{% endblock %}
+{% block maintag %}{% endblock %}
+{% block toolbar %}{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    :root {
+      --sl-green: #4AA84A;
+      --sl-green-dark: #2F7A3A;
+      --sl-red: #CE1126;
+      --sl-ink: #1A2B22;
+      --sl-muted: #6B7670;
+    }
+
+    body { background: #FAFAF8; }
+
+    /* HERO */
+    .sl-hero-block {
+      background: linear-gradient(160deg, var(--sl-green) 0%, var(--sl-green-dark) 100%);
+      padding: 72px 0 0;
+      border-bottom: 5px solid var(--sl-red);
+      text-align: center;
+      position: relative;
+    }
+    .sl-hero-block::after {
+      content: "";
+      position: absolute;
+      bottom: -5px; left: 0; right: 0;
+      height: 5px;
+      background: repeating-linear-gradient(90deg, var(--sl-red) 0 24px, #ffffff 24px 26px);
+      opacity: 0.9;
+    }
+    .sl-eyebrow {
+      color: rgba(255,255,255,0.85);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .sl-hero-block h1 {
+      color: white;
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+    }
+    .sl-hero-block p {
+      color: rgba(255,255,255,0.92);
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .sl-search-form {
+      display: flex;
+      justify-content: center;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+      border-radius: 10px;
+      overflow: hidden;
+      background: white;
+    }
+    .sl-search-form input {
+      flex: 1;
+      padding: 16px 22px;
+      border: none;
+      font-size: 15px;
+      outline: none;
+    }
+    .sl-search-form button {
+      padding: 16px 32px;
+      background: var(--sl-red);
+      color: white;
+      border: none;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .sl-search-form button:hover { background: #A50E1E; }
+
+    .sl-stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      padding: 22px 0 36px;
+      flex-wrap: wrap;
+    }
+    .sl-stat { text-align: center; }
+    .sl-stat-num { color: white; font-size: 24px; font-weight: 800; }
+    .sl-stat-label { color: rgba(255,255,255,0.72); font-size: 11px; text-transform: uppercase; letter-spacing: 1.4px; margin-top: 3px; font-weight: 600; }
+
+    /* SECTION HEADER */
+    .sl-section-head { max-width: 1140px; margin: 64px auto 8px; padding: 0 24px; text-align: center; }
+    .sl-section-head .sl-tag {
+      display: inline-block;
+      color: var(--sl-green-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .sl-section-head h2 { color: var(--sl-ink); font-size: 28px; font-weight: 800; margin: 0 0 10px; }
+    .sl-section-head p { color: var(--sl-muted); font-size: 15px; max-width: 520px; margin: 0 auto; }
+
+    /* CARDS */
+    .sl-categories-block { max-width: 1140px; margin: 32px auto 72px; padding: 0 24px; }
+    .sl-grid-block { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 18px; }
+
+    .sl-card-block {
+      background: white;
+      border: 1px solid #E7E9E5;
+      border-radius: 14px;
+      padding: 22px;
+      text-decoration: none;
+      display: block;
+      position: relative;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .sl-card-block:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(20,40,25,0.12);
+      border-color: transparent;
+    }
+    .sl-card-badge {
+      width: 44px; height: 44px;
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+      font-size: 21px;
+    }
+    .sl-card-block h3 { color: var(--sl-ink); font-size: 16px; font-weight: 700; margin: 0 0 4px; }
+    .sl-card-block p { color: var(--sl-muted); font-size: 13px; margin: 0 0 14px; line-height: 1.4; }
+    .sl-card-count {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .sl-card-count::after { content: "→"; transition: transform 0.18s; }
+    .sl-card-block:hover .sl-card-count::after { transform: translateX(3px); }
+
+    .c1 { background: #E8F5E9; color: #2F7A3A; }
+    .c2 { background: #FDEAEA; color: #C0392B; }
+    .c3 { background: #E8F0FE; color: #2E5FA3; }
+    .c4 { background: #FFF4DE; color: #B8860B; }
+    .c5 { background: #EAF7EC; color: #3A8A4F; }
+    .c6 { background: #ECEAF7; color: #5B4FA3; }
+    .c7 { background: #FBE9EE; color: #A3315B; }
+    .c8 { background: #E3F2F4; color: #2A7E8C; }
+
+    /* FOOTER STRIP ABOVE FOOTER */
+    .sl-cta-strip {
+      background: var(--sl-ink);
+      padding: 36px 24px;
+      text-align: center;
+    }
+    .sl-cta-strip p { color: rgba(255,255,255,0.85); font-size: 14px; margin: 0; }
+    .sl-cta-strip strong { color: white; }
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class="homepage">
+  <div id="content">{{ self.flash() }}</div>
+  {% block primary_content %}
+  <div role="main">
+
+    <div class="sl-hero-block">
+      <div class="sl-eyebrow">Republic of Somaliland</div>
+      <h1>Somaliland Open Data Portal</h1>
+      <p>Free and open access to data from across Somaliland — for citizens, researchers, developers and government.</p>
+      <form action="/dataset" method="get" class="sl-search-form">
+        <input type="text" name="q" placeholder="Search datasets — population, health, education..."/>
+        <button type="submit">Search</button>
+      </form>
+      <div class="sl-stats-row">
+        <div class="sl-stat"><div class="sl-stat-num">8</div><div class="sl-stat-label">Topics</div></div>
+        <div class="sl-stat"><div class="sl-stat-num">Open</div><div class="sl-stat-label">License</div></div>
+        <div class="sl-stat"><div class="sl-stat-num">API</div><div class="sl-stat-label">Access</div></div>
+      </div>
+    </div>
+
+    <div class="sl-section-head">
+      <div class="sl-tag">Explore the data</div>
+      <h2>Browse by topic</h2>
+      <p>Datasets organised by the categories that matter most to Somaliland's people, institutions, and partners.</p>
+    </div>
+
+    <div class="sl-categories-block">
+      <div class="sl-grid-block">
+
+        <a href="/dataset?groups=population" class="sl-card-block">
+          <div class="sl-card-badge c1">👥</div>
+          <h3>Population</h3>
+          <p>Demographics and census data</p>
+          <span class="sl-card-count" style="color:#2F7A3A">Browse datasets</span>
+        </a>
+
+        <a href="/dataset?groups=health" class="sl-card-block">
+          <div class="sl-card-badge c2">🏥</div>
+          <h3>Health</h3>
+          <p>Hospitals, clinics and health stats</p>
+          <span class="sl-card-count" style="color:#C0392B">Browse datasets</span>
+        </a>
+
+        <a href="/dataset?groups=education" class="sl-card-block">
+          <div class="sl-card-badge c3">🎓</div>
+          <h3>Education</h3>
+          <p>Schools, literacy and enrollment</p>
+          <span class="sl-card-count" style="color:#2E5FA3">Browse datasets</span>
+        </a>
+
+        <a href="/dataset?groups=economy" class="sl-card-block">
+          <div class="sl-card-badge c4">💰</div>
+          <h3>Economy</h3>
+          <p>Trade, GDP and business data</p>
+          <span class="sl-card-count" style="color:#B8860B">Browse datasets</span>
+        </a>
+
+        <a href="/dataset?groups=agriculture" class="sl-card-block">
+          <div class="sl-card-badge c5">🌾</div>
+          <h3>Agriculture</h3>
+          <p>Livestock, crops and land use</p>
+          <span class="sl-card-count" style="color:#3A8A4F">Browse datasets</span>
+        </a>
+
+        <a href="/dataset?groups=infrastructure" class="sl-card-block">
+          <div class="sl-card-badge c6">🏗️</div>
+          <h3>Infrastructure</h3>
+          <p>Roads, water and electricity</p>
+          <span class="sl-card-count" style="color:#5B4FA3">Browse datasets</span>
+        </a>
+
+        <a href="/dataset?groups=displacement" class="sl-card-block">
+          <div class="sl-card-badge c7">🏕️</div>
+          <h3>Displacement</h3>
+          <p>Refugees and IDP data</p>
+          <span class="sl-card-count" style="color:#A3315B">Browse datasets</span>
+        </a>
+
+        <a href="/dataset?groups=geospatial" class="sl-card-block">
+          <div class="sl-card-badge c8">🗺️</div>
+          <h3>Geospatial</h3>
+          <p>Maps, regions and boundaries</p>
+          <span class="sl-card-count" style="color:#2A7E8C">Browse datasets</span>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="sl-cta-strip">
+      <p>Built in the open, for Somaliland. <strong>Have data to share?</strong> Get in touch to publish your dataset.</p>
+    </div>
+
+  </div>
+  {% endblock %}
+</div>
+{% endblock %}

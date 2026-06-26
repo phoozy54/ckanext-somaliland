@@ -1,0 +1,33 @@
+{% ckan_extends %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="/somaliland.css" />
+{% endblock %}
+
+{% block header %}
+<header class="sl-header">
+  <div class="container">
+    <div class="sl-header-inner">
+      <a href="/" class="sl-logo">
+        🇸🇱 <span>Somaliland Open Data</span>
+      </a>
+      <nav class="sl-nav">
+        <a href="/dataset">Datasets</a>
+        <a href="/organization">Organisations</a>
+        <a href="/group">Topics</a>
+        <a href="/about">About</a>
+      </nav>
+    </div>
+  </div>
+</header>
+{% endblock %}
+
+{% block footer %}
+<footer class="sl-footer">
+  <div class="container">
+    <p>🇸🇱 Somaliland Open Data Portal — Free and open data for the people of Somaliland</p>
+    <p>Built with ❤️ by Foosi Mohamed Jama</p>
+  </div>
+</footer>
+{% endblock %}

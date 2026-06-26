@@ -1,0 +1,6 @@
+include README.rst
+include LICENSE
+include requirements.txt
+recursive-include ckanext/somaliland *.html *.json *.js *.less *.css *.mo *.yml
+recursive-include ckanext/somaliland/migration *.ini *.py *.mako
+recursive-include ckanext/somaliland/public *.*

@@ -1,0 +1,29 @@
+{% ckan_extends %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    .account-masthead {
+      background-color: #0F1A13 !important;
+    }
+    .masthead {
+      background-color: #1A2B22 !important;
+    }
+    .masthead .navbar-nav > li > a,
+    .masthead .navbar-nav > li > a:hover,
+    .masthead .site-search input,
+    .account-masthead a,
+    .account-masthead .username {
+      color: white !important;
+    }
+    .masthead .site-search button {
+      color: #1A2B22 !important;
+    }
+  </style>
+{% endblock %}
+
+{% block header_logo %}
+<a class="logo" href="{{ h.url_for('home.index') }}" style="display:flex;align-items:center;">
+  <img src="/logo.svg" alt="Somaliland Open Data Portal" title="Somaliland Open Data Portal" style="height:56px;" />
+</a>
+{% endblock %}

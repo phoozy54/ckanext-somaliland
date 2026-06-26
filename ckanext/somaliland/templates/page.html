@@ -1,0 +1,33 @@
+{% ckan_extends %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    .account-masthead {
+      background-color: #0F1A13 !important;
+    }
+    header.masthead {
+      background-color: #1A2B22 !important;
+    }
+    header.masthead .navbar-nav > li > a,
+    header.masthead .navbar-nav > li > a:hover,
+    .account-masthead a,
+    .account-masthead .username {
+      color: #ffffff !important;
+    }
+    header.masthead .site-search input {
+      color: #1A2B22 !important;
+    }
+    footer.site-footer {
+      background-color: #1A2B22 !important;
+    }
+    footer.site-footer a,
+    footer.site-footer p,
+    footer.site-footer label {
+      color: #ffffff !important;
+    }
+    footer.site-footer select {
+      color: #1A2B22 !important;
+    }
+  </style>
+{% endblock %}

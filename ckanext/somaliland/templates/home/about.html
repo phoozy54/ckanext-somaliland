@@ -1,0 +1,53 @@
+{% extends "page.html" %}
+{% block subtitle %}{{ _('About') }}{% endblock %}
+{% block breadcrumb_content %}
+  <li class="active">{% link_for _('About'), named_route='home.about' %}</li>
+{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    .sl-about { max-width: 760px; }
+    .sl-about h1 { color: #1A2B22; font-size: 30px; font-weight: 800; margin-bottom: 18px; }
+    .sl-about h2 { color: #2F7A3A; font-size: 19px; font-weight: 700; margin: 30px 0 10px; }
+    .sl-about p { color: #444; font-size: 15px; line-height: 1.7; margin-bottom: 14px; }
+    .sl-about ul { margin: 0 0 14px 20px; color: #444; font-size: 15px; line-height: 1.7; }
+    .sl-about-flag { display:flex; gap:4px; margin-bottom: 20px; }
+    .sl-about-flag span { width: 28px; height: 6px; border-radius: 2px; }
+  </style>
+{% endblock %}
+
+{% block primary %}
+  <article class="module" role="main">
+    <div class="module-content sl-about">
+      <div class="sl-about-flag">
+        <span style="background:#4AA84A"></span>
+        <span style="background:#ffffff;border:1px
+cat > /home/ckan/src/ckanext-somaliland/ckanext/somaliland/templates/footer.html << 'EOF'
+{% ckan_extends %}
+
+{% block footer_content %}
+<div class="row">
+  <div class="col-md-8 footer-links">
+    <ul class="list-unstyled" style="display:flex;gap:28px;flex-wrap:wrap;">
+      <li><a href="https://forms.gle/" target="_blank" rel="noopener">{{ _('Feedback') }}</a></li>
+      <li><a href="{{ h.url_for('home.about') }}">{{ _('Open Data Licence') }}</a></li>
+      <li><a href="{{ h.url_for('home.about') }}">{{ _('Privacy & Terms') }}</a></li>
+    </ul>
+  </div>
+  <div class="col-md-4 attribution">
+    <p style="display:flex;align-items:center;gap:8px;">
+      <strong>Powered by</strong>
+      <img src="/logo-icon.svg" alt="Somaliland Open Data Portal" style="height:20px;vertical-align:middle;" />
+    </p>
+    {% block footer_lang %}
+      {% snippet "snippets/language_selector.html" %}
+    {% endblock %}
+  </div>
+</div>
+<div class="row" style="margin-top:18px;">
+  <div class="col-md-12" style="text-align:center;">
+    <p style="font-size:12px;color:#888;">© 2026 Somaliland Open Data Portal.</p>
+  </div>
+</div>
+{% endblock %}
