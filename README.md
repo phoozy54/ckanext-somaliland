@@ -49,8 +49,15 @@ Modeled conceptually on portals like Singapore's [data.gov.sg](https://data.gov.
 - **Docker** — local development and deployment
 - **Jinja2** — template overrides (no core CKAN files modified)
 
+
 ## Local Development
 
+This extension is designed to run inside a CKAN Docker environment. See [ckan/ckan-docker](https://github.com/ckan/ckan-docker) for the base setup instructions.
+
+1. Clone this repository into your CKAN project's `src/` directory
+2. Install the extension: `pip install -e .`
+3. Add `somaliland` to your `CKAN__PLUGINS` environment variable
+4. Restart CKAN
 
 
 ## Status
@@ -72,10 +79,17 @@ This project's original code, templates, and design (the `ckanext-somaliland` ex
 
 This means: anyone is free to use, modify, and redistribute this code — including running it as a public service — provided that any modified version is also made available under the same license, with its source code accessible to users.
 
+## License
+
+Copyright (C) 2026 Foosi Morris
+
+This project's original code, templates, and design (the `ckanext-somaliland` extension) are licensed under the **GNU Affero General Public License v3.0** — the same license used by CKAN itself. See [LICENSE](LICENSE) for the full text.
+
+This means: anyone is free to use, modify, and redistribute this code — including running it as a public service — provided that any modified version is also made available under the same license, with its source code accessible to users.
+
 ## Author
 
-Built by **FOOSI MORRIS ** — 
-
+Built by **Foosi Morris** — [github.com/phoozy54](https://github.com/phoozy54)
 ---
 
 *This is an independent, community-built initiative and is not yet an official government platform.*
